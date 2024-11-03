@@ -164,32 +164,32 @@ def visualize_simulation(grid, fear_grid):
     ax2.set_title('Población respecto al tiempo')
     ax2.legend()
 
-    gen_text = fig.text(0.1, 0.95, 'Generación: 0')
-    prey_count_text = fig.text(0.1, 0.92, 'Total presas: 0')
-    predator_count_text = fig.text(0.1, 0.89, 'Total depredadores: 0')
+    gen_text = fig.text(0.05, 0.95, 'Generación: 0')
+    prey_count_text = fig.text(0.05, 0.92, 'Total presas: 0')
+    predator_count_text = fig.text(0.05, 0.89, 'Total depredadores: 0')
 
 
     axcolor = 'lightgoldenrodyellow'
-    ax_prey_birth_rate = plt.axes([0.1, 0.2, 0.8, 0.03], facecolor=axcolor)
-    prey_birth_slider = Slider(ax_prey_birth_rate, 'Tasa de nacimientos de presas', 0.0, 0.1, valinit=prey_birth_rate)
+    ax_prey_birth_rate = plt.axes([0.3, 0.2, 0.5, 0.03], facecolor=axcolor)
+    prey_birth_slider = Slider(ax_prey_birth_rate, 'Nacimientos de presas', 0.0, 0.1, valinit=prey_birth_rate)
 
-    ax_predator_birth_rate = plt.axes([0.1, 0.15, 0.8, 0.03], facecolor=axcolor)
-    predator_birth_slider = Slider(ax_predator_birth_rate, 'Tasa de nacimientos de depredadores', 0.0, 0.1, valinit=predator_birth_rate)
+    ax_predator_birth_rate = plt.axes([0.3, 0.15, 0.5, 0.03], facecolor=axcolor)
+    predator_birth_slider = Slider(ax_predator_birth_rate, 'Nacimientos de depredadores', 0.0, 0.1, valinit=predator_birth_rate)
 
-    ax_predator_death_rate = plt.axes([0.1, 0.1, 0.8, 0.03], facecolor=axcolor)
-    predator_death_slider = Slider(ax_predator_death_rate, 'Tasa de muertes de depresadores', 0.0, 0.1, valinit=predator_death_rate)
+    ax_predator_death_rate = plt.axes([0.3, 0.1, 0.5, 0.03], facecolor=axcolor)
+    predator_death_slider = Slider(ax_predator_death_rate, 'Muertes de depresadores', 0.0, 0.1, valinit=predator_death_rate)
 
-    ax_sim_speed = plt.axes([0.1, 0.05, 0.8, 0.03], facecolor=axcolor)
+    ax_sim_speed = plt.axes([0.3, 0.05, 0.5, 0.03], facecolor=axcolor)
     sim_speed_slider = Slider(ax_sim_speed, 'Velocidad de simulación', 0.1, 5.0, valinit=speed_factor)
 
     # Botones
-    ax_start = plt.axes([0.7, 0.025, 0.1, 0.04])
+    ax_start = plt.axes([0.7, 0.01, 0.1, 0.04])
     button_start = Button(ax_start, 'Start')
 
-    ax_stop = plt.axes([0.81, 0.025, 0.1, 0.04])
+    ax_stop = plt.axes([0.81, 0.01, 0.1, 0.04])
     button_stop = Button(ax_stop, 'Stop')
 
-    ax_reset = plt.axes([0.59, 0.025, 0.1, 0.04])
+    ax_reset = plt.axes([0.59, 0.01, 0.1, 0.04])
     button_reset = Button(ax_reset, 'Reset')
 
     # Funciones de los sliders
@@ -278,9 +278,9 @@ def visualize_simulation(grid, fear_grid):
 
         # Actualización de textos
         generation_count += 1
-        gen_text.set_text('Generation: {}'.format(generation_count))
-        prey_count_text.set_text('Prey Count: {}'.format(prey_count))
-        predator_count_text.set_text('Predator Count: {}'.format(predator_count))
+        gen_text.set_text('Generación: {}'.format(generation_count))
+        prey_count_text.set_text('Total de presas: {}'.format(prey_count))
+        predator_count_text.set_text('Total de depredadores: {}'.format(predator_count))
 
         return [mat, prey_line, predator_line]
 
